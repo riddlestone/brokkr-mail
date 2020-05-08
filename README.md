@@ -59,4 +59,4 @@ For more details on the configuration options, see the
 
 ## Get Involved
 
-File issues at https://github.com/riddlestone/brokkr-users/issues
+File issues at https://github.com/riddlestone/brokkr-mail/issues
