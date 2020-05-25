@@ -13,6 +13,48 @@ composer require riddlestone/brokkr-mail
 
 ## Usage
 
+### Building a Message
+
+This module adds a factory for generating messages with content created using Laminas View.
+
+```php
+// local.config.php
+
+return [
+    'view_manager' => [
+        'template_path_stack' => [
+            __DIR__ . '/../views',
+        ],
+    ],
+];
+``` 
+
+```php
+// some_factory_or_service.php
+
+use Laminas\ServiceManager\ServiceManager;
+use Riddlestone\Brokkr\Mail\MessageFactory;
+
+/** @var ServiceManager $serviceManager */
+
+$messageFactory = $serviceManager->get(MessageFactory::class);
+$message = $messageFactory(
+    'mail/my-html-template',
+    'mail/my-text-template',
+    [
+        'view_variable_1' => 'Some value',
+        'view_variable_2' => 'Some other value',
+    ],
+);
+```
+
+Once created, you will need to set the subject, and other header fields (such as To, From, etc.).
+
+The created message will have two alternate mime-parts: text and HTML. If the text template is omitted, the text will be
+created from the HTML content.
+
+### Building a Transport
+
 This module adds a factory for `Laminas\Mail\Transport\TransportInterface` which creates it from configuration at
 `mail.transport`.
 
