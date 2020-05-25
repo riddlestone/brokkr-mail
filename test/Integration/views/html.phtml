@@ -1,0 +1,12 @@
+<?php
+
+use Laminas\View\Renderer\PhpRenderer;
+
+/**
+ * @var PhpRenderer $this
+ * @var string $title
+ * @var string $paragraph
+ */
+?>
+<h1><?= $this->escapeHtml($title) ?></h1>
+<p><?= $this->escapeHtml($paragraph) ?></p>
