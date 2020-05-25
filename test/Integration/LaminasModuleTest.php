@@ -1,6 +1,6 @@
 <?php
 
-namespace Integration;
+namespace Riddlestone\Brokkr\Mail\Test\Integration;
 
 use PHPUnit\Framework\TestCase;
 
